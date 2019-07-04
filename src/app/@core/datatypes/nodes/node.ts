@@ -5,4 +5,10 @@ export class Node {
   readonly: boolean;
   type: NodeType;
   selected: boolean;
+
+
+  constructor(label: string, type: NodeType) {
+    this.label = label;
+    this.type = type;
+  }
 }
