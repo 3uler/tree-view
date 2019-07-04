@@ -1,4 +1,4 @@
-import {Range} from '../range';
+import {IRange} from '../range';
 
 export interface IBaseSchema {
   readonly: boolean;
@@ -11,7 +11,7 @@ export interface IStringSchema extends IBaseSchema {
 }
 
 export interface INumberSchema extends IBaseSchema {
-  range: Range;
+  range: IRange;
   values: number[];
 }
 
@@ -19,5 +19,5 @@ export interface IArraySchema extends IBaseSchema {
   values: any[];
   minimalLength: number;
   maximalLength: number;
-  range: Range;
+  range: IRange;
 }
