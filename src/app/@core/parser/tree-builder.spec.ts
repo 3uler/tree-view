@@ -7,7 +7,7 @@ import {NodeArray} from '../datatypes/nodes/node-array';
 import {TreeBuilder} from './tree-builder';
 
 describe('TreeBuilder', () => {
-  it('should build simple tree from source.json', () => {
+  it('should build simple tree from source.json (no schema)', () => {
     // init
     const source = {
       a: 12,

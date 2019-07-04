@@ -25,11 +25,11 @@ export class TreeBuilder {
 
   private static generateNodeFromType(key: string, source: any, schema: any): Node {
     if (typeof source === 'boolean') {
-      return new NodeBoolean(key, source);
+      return new NodeBoolean(key, source, schema);
     } else if (typeof source === 'number') {
-      return new NodeNumber(key, source);
+      return new NodeNumber(key, source, schema);
     } else if (typeof source === 'string') {
-      return new NodeString(key, source);
+      return new NodeString(key, source, schema);
     } else if (typeof source === 'object' && !Array.isArray(source)) {
       return new NodeObject(key, this.traverseObjectRecursivelyAndReturnNodes(source));
     } else if (typeof source === 'object' && Array.isArray(source)) {
@@ -37,7 +37,7 @@ export class TreeBuilder {
       for (let i = 0; i < source.length; i++) {
         childArray.push(this.generateNodeFromType(i.toString(10), source[i], schema));
       }
-      return new NodeArray(key, childArray);
+      return new NodeArray(key, childArray, schema);
     } else {
       throw new Error('Invalid type was given: ' + (typeof source));
     }
