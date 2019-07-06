@@ -1,0 +1,3 @@
+<div *ngFor="let node of treeNodes">
+  <node-boolean *ngIf="node.type === nodeType.BOOLEAN" [node]="node"></node-boolean>
+</div>
