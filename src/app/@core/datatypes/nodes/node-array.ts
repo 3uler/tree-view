@@ -11,8 +11,8 @@ export class NodeArray extends Node implements IArraySchema {
   range: Range;
 
 
-  constructor(label: string, children: Node[], schema?: IArraySchema) {
-    super(label, NodeType.ARRAY, schema && schema.readonly || false);
+  constructor(label: string, children: Node[], schema?: Partial<IArraySchema>) {
+    super(label, NodeType.ARRAY, schema);
     this.children = children;
     this.values = schema && schema.values || null;
     this.minimalLength = schema && schema.minimalLength || null;

@@ -8,9 +8,6 @@ export class Range {
   to: number;
 
   constructor(obj: IRange) {
-    if (obj && !(obj.from && obj.to)) {
-      throw new Error('Invalid Range');
-    }
     this.from = obj.from;
     this.to = obj.to;
   }

@@ -9,8 +9,8 @@ export class NodeNumber extends Node implements INumberSchema {
   range: Range;
 
 
-  constructor(label: string, value: number, schema?: INumberSchema) {
-    super(label, NodeType.NUMBER, schema && schema.readonly || false);
+  constructor(label: string, value: number, schema?: Partial<INumberSchema>) {
+    super(label, NodeType.NUMBER, schema);
     this.value = value;
     this.values = schema && schema.values || null;
     this.range = schema && schema.range ? new Range(schema.range) : null;

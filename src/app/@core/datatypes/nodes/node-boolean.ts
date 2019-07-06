@@ -6,8 +6,8 @@ export class NodeBoolean extends Node {
   value: boolean;
 
 
-  constructor(label: string, value: boolean, schema?: IBaseSchema) {
-    super(label, NodeType.BOOLEAN, schema && schema.readonly || false);
+  constructor(label: string, value: boolean, schema?: Partial<IBaseSchema>) {
+    super(label, NodeType.BOOLEAN, schema);
     this.value = value;
   }
 }

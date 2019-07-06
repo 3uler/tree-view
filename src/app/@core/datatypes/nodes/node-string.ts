@@ -9,8 +9,8 @@ export class NodeString extends Node implements IStringSchema {
   maximalLength: number;
 
 
-  constructor(label: string, value: string, schema?: IStringSchema) {
-    super(label, NodeType.STRING, schema && schema.readonly || false);
+  constructor(label: string, value: string, schema?: Partial<IStringSchema>) {
+    super(label, NodeType.STRING, schema);
     this.value = value;
     this.values = schema && schema.values || null;
     this.minimalLength = schema && schema.minimalLength || null;

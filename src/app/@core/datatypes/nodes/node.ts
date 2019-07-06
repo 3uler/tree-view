@@ -5,12 +5,12 @@ export class Node implements IBaseSchema {
   label: string;
   readonly: boolean;
   type: NodeType;
-  selected: boolean;
+  selected = false;
 
 
-  constructor(label: string, type: NodeType, readonly: boolean = false) {
+  constructor(label: string, type: NodeType, schema?: Partial<IBaseSchema>) {
     this.label = label;
     this.type = type;
-    this.readonly = readonly;
+    this.readonly = schema && schema.readonly || false;
   }
 }

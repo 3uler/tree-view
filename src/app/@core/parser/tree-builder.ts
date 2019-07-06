@@ -15,7 +15,7 @@ export class TreeBuilder {
     const schemaKeys = schema ? Object.keys(schema) : [];
     for (const key of Object.keys(source)) {
       let schemaElement: object = null;
-      if (key in schemaKeys) {
+      if (schemaKeys.includes(key)) {
         schemaElement = schema[key];
       }
       branch.push(this.generateNodeFromType(key, source[key], schemaElement));
@@ -31,7 +31,7 @@ export class TreeBuilder {
     } else if (typeof source === 'string') {
       return new NodeString(key, source, schema);
     } else if (typeof source === 'object' && !Array.isArray(source)) {
-      return new NodeObject(key, this.traverseObjectRecursivelyAndReturnNodes(source));
+      return new NodeObject(key, this.traverseObjectRecursivelyAndReturnNodes(source, schema));
     } else if (typeof source === 'object' && Array.isArray(source)) {
       const childArray: Node[] = [];
       for (let i = 0; i < source.length; i++) {
