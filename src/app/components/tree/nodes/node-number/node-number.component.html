@@ -1,0 +1,7 @@
+<label>
+  <span>{{nodeNumber.label}}: </span>
+  <input *ngIf="!nodeNumber.values" type="number" [readOnly]="nodeNumber.readonly" [valueAsNumber]="nodeNumber.value">
+  <select *ngIf="!!nodeNumber.values" [(ngModel)]="nodeNumber.value" [disabled]="nodeNumber.readonly">
+    <option *ngFor="let val of nodeNumber.values" [value]="val">{{val}}</option>
+  </select>
+</label>

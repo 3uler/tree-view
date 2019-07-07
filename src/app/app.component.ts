@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {source} from './input-mock/source';
+import {schema} from './input-mock/schema';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tree-view';
+  source: object;
+  schema: object;
+
+  constructor() {
+    this.source = source;
+    this.schema = schema;
+  }
 }

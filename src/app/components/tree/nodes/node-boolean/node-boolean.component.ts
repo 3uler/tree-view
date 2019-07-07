@@ -11,10 +11,10 @@ export class NodeBooleanComponent implements OnInit {
   @Input() node: Node;
   nodeBoolean: NodeBoolean;
   constructor() {
-    this.nodeBoolean = this.node as NodeBoolean;
   }
 
   ngOnInit() {
+    this.nodeBoolean = this.node as NodeBoolean;
   }
 
 }
