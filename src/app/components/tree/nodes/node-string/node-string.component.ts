@@ -10,10 +10,11 @@ import {NodeString} from '../../../../@core/datatypes/nodes/node-string';
 export class NodeStringComponent implements OnInit {
   @Input() node: Node;
   nodeString: NodeString;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     this.nodeString = this.node as NodeString;
   }
-
 }

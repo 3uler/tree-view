@@ -3,7 +3,7 @@ export const schema = {
     readonly: true
   },
   d: {
-    values: [1, 2, 3, 4],
-    readonly: true
+    values: [1, 3, 4],
+    readonly: false
   }
 };

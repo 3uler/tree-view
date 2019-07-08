@@ -1,1 +1,10 @@
-<p>node-object works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="header">
+  <div>
+    <button (click)="toggleCollapsed()">{{collapsed ? 'Down' : 'Up'}}</button>
+    <span>{{node.label}}: </span>
+  </div>
+  <input type="checkbox" [(ngModel)]="node.selected">
+</div>
+<div *ngIf="!collapsed">
+  <node-list [children]="nodeObject.children"></node-list>
+</div>

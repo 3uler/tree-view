@@ -4,6 +4,7 @@ import {NodeType} from '../../@core/enums/node-type';
 import {TreeBuilder} from '../../@core/parser/tree-builder';
 import {source} from '../../input-mock/source';
 import {schema} from '../../input-mock/schema';
+import {NodeObject} from '../../@core/datatypes/nodes/node-object';
 
 @Component({
   selector: 'app-tree',
@@ -12,7 +13,6 @@ import {schema} from '../../input-mock/schema';
 })
 export class TreeComponent implements OnInit {
   treeNodes: Node[];
-  private nodeType = NodeType;
   constructor() {
     this.treeNodes = TreeBuilder.parseJson(source, schema);
   }
@@ -20,4 +20,24 @@ export class TreeComponent implements OnInit {
   ngOnInit() {
   }
 
+  private removeSelected(): void {
+    this.removeSelectedNodes(this.treeNodes);
+  }
+
+  private removeSelectedNodes(nodes: Node[]) {
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      if (node.selected) {
+        nodes.splice(i, 1);
+        break;
+      }
+      if (node.type === NodeType.OBJECT || node.type === NodeType.ARRAY) {
+        this.removeSelectedNodes((node as NodeObject).children);
+      }
+        }
+  }
+
+  validate(): void {
+    return;
+  }
 }

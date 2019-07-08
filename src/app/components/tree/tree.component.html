@@ -1,5 +1,9 @@
-<div *ngFor="let node of treeNodes">
-  <node-boolean *ngIf="node.type === nodeType.BOOLEAN" [node]="node"></node-boolean>
-  <node-number *ngIf="node.type === nodeType.NUMBER" [node]="node"></node-number>
-  <node-string *ngIf="node.type === nodeType.STRING" [node]="node"></node-string>
+<div class="right">
+  <button (click)="removeSelected()">Remove</button>
+</div>
+<div class="hline"></div>
+<node-list [children]="treeNodes"></node-list>
+<div class="hline"></div>
+<div class="right">
+  <button (click)="validate()">Validate</button>
 </div>

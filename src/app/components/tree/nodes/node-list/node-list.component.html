@@ -1,0 +1,12 @@
+<div *ngFor="let node of children" class="child-container">
+  <div *ngIf="!isObjectOrArray(node)" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <span>{{node.label}}: </span>
+      <node-boolean *ngIf="node.type === nodeType.BOOLEAN" [node]="node"></node-boolean>
+      <node-number *ngIf="node.type === nodeType.NUMBER" [node]="node"></node-number>
+      <node-string *ngIf="node.type === nodeType.STRING" [node]="node"></node-string>
+    </div>
+    <input type="checkbox" [(ngModel)]="node.selected">
+  </div>
+  <node-object *ngIf="isObjectOrArray(node)" [node]="node"></node-object>
+</div>
