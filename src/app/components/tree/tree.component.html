@@ -5,5 +5,6 @@
 <node-list [children]="treeNodes"></node-list>
 <div class="hline"></div>
 <div class="right">
+  <span *ngIf="validated">{{valid ? 'All entries are valid' : 'There are validation errors'}}</span>
   <button (click)="validate()">Validate</button>
 </div>

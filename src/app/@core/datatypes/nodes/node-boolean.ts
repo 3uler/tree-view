@@ -10,4 +10,8 @@ export class NodeBoolean extends Node {
     super(label, NodeType.BOOLEAN, schema);
     this.value = value;
   }
+
+  isValid(): boolean {
+    return super.isValid();
+  }
 }

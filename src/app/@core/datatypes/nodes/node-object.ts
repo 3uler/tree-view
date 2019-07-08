@@ -9,4 +9,7 @@ export class NodeObject extends Node {
     super(label, NodeType.OBJECT);
     this.children = children;
   }
+  isValid(): boolean {
+    return this.children.every((child) => child.isValid());
+  }
 }

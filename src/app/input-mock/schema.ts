@@ -5,5 +5,8 @@ export const schema = {
   d: {
     values: [1, 3, 4],
     readonly: false
+  },
+  e: {
+    minimalLength: 5
   }
 };

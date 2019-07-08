@@ -13,4 +13,8 @@ export class Node implements IBaseSchema {
     this.type = type;
     this.readonly = schema && schema.readonly || false;
   }
+
+  isValid(): boolean {
+    return true;
+  }
 }

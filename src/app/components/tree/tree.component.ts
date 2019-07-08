@@ -13,6 +13,8 @@ import {NodeObject} from '../../@core/datatypes/nodes/node-object';
 })
 export class TreeComponent implements OnInit {
   treeNodes: Node[];
+  validated = false;
+  valid: boolean;
   constructor() {
     this.treeNodes = TreeBuilder.parseJson(source, schema);
   }
@@ -29,7 +31,6 @@ export class TreeComponent implements OnInit {
       const node = nodes[i];
       if (node.selected) {
         nodes.splice(i, 1);
-        break;
       }
       if (node.type === NodeType.OBJECT || node.type === NodeType.ARRAY) {
         this.removeSelectedNodes((node as NodeObject).children);
@@ -38,6 +39,7 @@ export class TreeComponent implements OnInit {
   }
 
   validate(): void {
-    return;
+    this.valid = this.treeNodes.every((node) => node.isValid());
+    this.validated = true;
   }
 }

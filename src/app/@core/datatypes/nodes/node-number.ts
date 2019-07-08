@@ -15,4 +15,8 @@ export class NodeNumber extends Node implements INumberSchema {
     this.values = schema && schema.values || null;
     this.range = schema && schema.range ? new Range(schema.range) : null;
   }
+
+  isValid(): boolean {
+    return this.range ? this.value > this.range.from && this.value < this.range.to : true;
+  }
 }

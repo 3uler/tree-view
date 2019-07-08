@@ -19,4 +19,8 @@ export class NodeArray extends Node implements IArraySchema {
     this.maximalLength = schema && schema.maximalLength || null;
     this.range = schema && schema.range ? new Range(schema.range) : null;
   }
+
+  isValid(): boolean {
+    return this.children.every((child) => child.isValid());
+  }
 }
