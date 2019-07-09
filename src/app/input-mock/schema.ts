@@ -15,6 +15,12 @@ export const schema = {
         from: 10,
         to: 100
       }
+    },
+    o3: {
+      readonly: true
+    },
+    o4: {
+      readonly: true
     }
   }
 };

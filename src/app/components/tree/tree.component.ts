@@ -29,12 +29,12 @@ export class TreeComponent implements OnInit {
   }
 
   private removeSelectedNodes(nodes: Node[]) {
-    for (let i = 0; i < nodes.length; i++) {
+    for (let i = nodes.length - 1; i >= 0; i--) {
       const node = nodes[i];
       if (node.selected) {
         nodes.splice(i, 1);
       }
-      if (node.type === NodeType.OBJECT || node.type === NodeType.ARRAY) {
+      if (!node.selected && (node.type === NodeType.OBJECT || node.type === NodeType.ARRAY)) {
         this.removeSelectedNodes((node as NodeObject).children);
       }
     }
