@@ -2,3 +2,7 @@
 <select *ngIf="!!nodeString.values" [(ngModel)]="nodeString.value" [disabled]="nodeString.readonly">
   <option *ngFor="let val of nodeString.values" [value]="val">{{val}}</option>
 </select>
+<div *ngIf="showValidation && !nodeString.isValid()">
+  <span *ngIf="showLowerLimitValidation()">The entry must contain at least {{nodeString.minimalLength}} characters.</span>
+  <span *ngIf="showUpperLimitValidation()">The entry must not contain more than {{nodeString.maximalLength}} characters.</span>
+</div>

@@ -2,3 +2,4 @@
 <select *ngIf="!!nodeNumber.values" [(ngModel)]="nodeNumber.value" [disabled]="nodeNumber.readonly">
   <option *ngFor="let val of nodeNumber.values" [value]="val">{{val}}</option>
 </select>
+<span *ngIf="showValidation && !nodeNumber.isValid()">Value must be between {{nodeNumber.range.from}} and {{nodeNumber.range.to}}.</span>

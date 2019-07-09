@@ -8,5 +8,13 @@ export const schema = {
   },
   e: {
     minimalLength: 5
+  },
+  obj: {
+    o2: {
+      range: {
+        from: 10,
+        to: 100
+      }
+    }
   }
 };

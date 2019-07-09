@@ -17,6 +17,6 @@ export class NodeNumber extends Node implements INumberSchema {
   }
 
   isValid(): boolean {
-    return this.range ? this.value > this.range.from && this.value < this.range.to : true;
+    return this.range ? this.value >= this.range.from && this.value <= this.range.to : true;
   }
 }
