@@ -124,4 +124,30 @@ describe('TreeBuilder', () => {
     expect(() => TreeBuilder.parseJson(source, schema)).toThrowError('Invalid Range specified');
     expect(() => TreeBuilder.parseJson(source, schema2)).toThrowError('Range must be of type number');
   });
+
+  it('should throw error on invalid type of values', function () {
+    // init
+    const source = {a: 1};
+    const schema = {a: {values: [1, 'a', 3]}};
+
+    const source2 = {b: 'b'};
+    const schema2 = {b: {values: ['b', 2, 'c']}};
+
+    // assert
+    expect(() => TreeBuilder.parseJson(source, schema)).toThrowError('Values must be of type number');
+    expect(() => TreeBuilder.parseJson(source2, schema2)).toThrowError('Values must be of type string');
+  });
+
+  it('should throw error on invalid type of min/max Length', function () {
+    // init
+    const source = {a: 'a'};
+    const schema = {a: {minimalLength: 'a'}};
+
+    const source2 = {b: 'b'};
+    const schema2 = {b: {maximalLength: 'b'}};
+
+    // assert
+    expect(() => TreeBuilder.parseJson(source, schema)).toThrowError('MinimalLength must be of type number');
+    expect(() => TreeBuilder.parseJson(source2, schema2)).toThrowError('MaximalLength must be of type number');
+  });
 });
