@@ -1,0 +1,54 @@
+@import "colors";
+
+@mixin base-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: $black;
+  font-family: Roboto, sans-serif;
+  &:focus {outline:0;}
+}
+
+.primary-btn {
+  @include base-btn;
+  background: $light-gray;
+  font-size: 16px;
+  border: 1px solid $mid-gray;
+
+  &:hover {
+    background: $mid-gray;
+  }
+}
+
+.secondary-btn {
+  @include base-btn;
+  background: $light;
+  font-size: 12px;
+  border: 1px solid $light-gray;
+
+  &:hover {
+    background: $light-gray;
+  }
+}
+
+@mixin collapse-btn {
+  @include base-btn;
+  background: $light-gray;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.collapse-btn-up {
+  @include collapse-btn;
+  &:after {
+    font-family: FontAwesome, sans-serif;
+    content: '\f106';
+  }
+}
+
+.collapse-btn-down {
+  @include collapse-btn;
+  &:after {
+    font-family: FontAwesome, sans-serif;
+    content: '\f107';
+  }
+}
