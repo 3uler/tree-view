@@ -1,2 +1,4 @@
-<input type="checkbox" [(ngModel)]="nodeBoolean.value" [disabled]="nodeBoolean.readonly">
-
+<div class="node-container">
+  <div class="label"><span>{{node.label}}:</span></div>
+  <input type="checkbox" [(ngModel)]="nodeBoolean.value" [disabled]="nodeBoolean.readonly">
+</div>

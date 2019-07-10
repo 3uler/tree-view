@@ -1,5 +1,15 @@
-<input *ngIf="!nodeNumber.values" type="number" [disabled]="nodeNumber.readonly" [(ngModel)]="nodeNumber.value">
-<select *ngIf="!!nodeNumber.values" [(ngModel)]="nodeNumber.value" [disabled]="nodeNumber.readonly">
-  <option *ngFor="let val of nodeNumber.values" [value]="val">{{val}}</option>
-</select>
-<span *ngIf="showValidation && !nodeNumber.isValid()">Value must be between {{nodeNumber.range.from}} and {{nodeNumber.range.to}}.</span>
+<div class="node-container">
+  <div class="label"><span>{{node.label}}:</span></div>
+  <div class="field-container">
+    <input *ngIf="!nodeNumber.values" type="number" [disabled]="nodeNumber.readonly" [(ngModel)]="nodeNumber.value">
+    <div *ngIf="!!nodeNumber.values" class="select-wrapper">
+      <select [(ngModel)]="nodeNumber.value" [disabled]="nodeNumber.readonly">
+        <option *ngFor="let val of nodeNumber.values" [value]="val">{{val}}</option>
+      </select>
+    </div>
+    <span *ngIf="showValidation && !nodeNumber.isValid()"
+          class="validation-warning">Value must be between {{nodeNumber.range.from}} and {{nodeNumber.range.to}}
+      .</span>
+  </div>
+</div>
+

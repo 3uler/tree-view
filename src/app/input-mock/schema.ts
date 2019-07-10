@@ -1,15 +1,15 @@
 export const schema = {
-  a: {
+  hello: {
     readonly: true
   },
-  d: {
+  'ddd ddd': {
     values: [1, 3, 4],
     readonly: false
   },
-  e: {
+  Eee: {
     minimalLength: 5
   },
-  obj: {
+  Object: {
     o2: {
       range: {
         from: 10,

@@ -10,7 +10,9 @@ import {NodeListComponent} from './nodes/node-list/node-list.component';
 
 
 @NgModule({
-  declarations: [TreeComponent, NodeBooleanComponent, NodeNumberComponent, NodeStringComponent, NodeObjectComponent, NodeListComponent],
+  declarations: [TreeComponent, NodeBooleanComponent, NodeNumberComponent,
+    NodeStringComponent, NodeObjectComponent, NodeListComponent
+  ],
   exports: [
     TreeComponent
   ],
@@ -19,4 +21,5 @@ import {NodeListComponent} from './nodes/node-list/node-list.component';
     FormsModule,
   ]
 })
-export class TreeModule { }
+export class TreeModule {
+}
