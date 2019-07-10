@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Node} from '../../@core/datatypes/nodes/node';
 import {NodeType} from '../../@core/enums/node-type';
 import {TreeBuilder} from '../../@core/parser/tree-builder';
-import {source} from '../../input-mock/source';
-import {schema} from '../../input-mock/schema';
 import {NodeObject} from '../../@core/datatypes/nodes/node-object';
 import {ValidationService} from '../../@core/service/validation.service';
 
@@ -13,15 +11,17 @@ import {ValidationService} from '../../@core/service/validation.service';
   styleUrls: ['./tree.component.scss']
 })
 export class TreeComponent implements OnInit {
+  @Input() source;
+  @Input() schema;
   treeNodes: Node[];
   validated = false;
   valid: boolean;
 
   constructor(private validationService: ValidationService) {
-    this.treeNodes = TreeBuilder.parseJson(source, schema);
   }
 
   ngOnInit() {
+    this.treeNodes = TreeBuilder.parseJson(this.source, this.schema);
   }
 
   private removeSelected(): void {
