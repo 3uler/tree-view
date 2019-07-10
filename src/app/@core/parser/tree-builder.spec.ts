@@ -47,7 +47,8 @@ describe('TreeBuilder', () => {
         c1: 123,
         c2: true
       },
-      d: [1, 2, 3]
+      d: [1, 2, 3],
+      e: 1
     };
 
     const schema = {
@@ -65,6 +66,9 @@ describe('TreeBuilder', () => {
           from: 0,
           to: 5
         }
+      },
+      e: {
+        values: [1, 2, 3]
       }
     };
 
@@ -79,7 +83,8 @@ describe('TreeBuilder', () => {
         new NodeNumber('0', 1, {range: {from: 0, to: 5}}),
         new NodeNumber('1', 2, {range: {from: 0, to: 5}}),
         new NodeNumber('2', 3, {range: {from: 0, to: 5}})
-      ], {range: {from: 0, to: 5}})
+      ], {range: {from: 0, to: 5}}),
+      new NodeNumber('e', 1, {values: [1, 2, 3]})
     ];
 
     // run
@@ -93,5 +98,30 @@ describe('TreeBuilder', () => {
     const nodeNumber = new NodeNumber('a', 123, {readonly: true});
     // assert
     expect(nodeNumber.readonly).toEqual(true);
+  });
+
+  it('should throw error on invalid range', function () {
+    // init
+    const source = {
+      a: 12
+    };
+    const schema = {
+      a: {
+        range: {
+          from: 1
+        }
+      }
+    };
+    const schema2 = {
+      a: {
+        range: {
+          from: 'a',
+          to: 'b'
+        }
+      }
+    };
+    // assert
+    expect(() => TreeBuilder.parseJson(source, schema)).toThrowError('Invalid Range specified');
+    expect(() => TreeBuilder.parseJson(source, schema2)).toThrowError('Range must be of type number');
   });
 });
