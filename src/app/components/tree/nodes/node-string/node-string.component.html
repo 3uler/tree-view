@@ -1,4 +1,4 @@
-<input *ngIf="!nodeString.values" type="text" [readOnly]="nodeString.readonly" [(ngModel)]="nodeString.value">
+<input *ngIf="!nodeString.values" type="text" [disabled]="nodeString.readonly" [(ngModel)]="nodeString.value">
 <select *ngIf="!!nodeString.values" [(ngModel)]="nodeString.value" [disabled]="nodeString.readonly">
   <option *ngFor="let val of nodeString.values" [value]="val">{{val}}</option>
 </select>

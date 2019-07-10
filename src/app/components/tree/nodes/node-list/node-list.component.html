@@ -1,5 +1,5 @@
 <div *ngFor="let node of children" class="child-container">
-  <div *ngIf="!isObjectOrArray(node)" fxLayout="row" fxLayoutAlign="space-between center">
+  <div *ngIf="!isObjectOrArray(node)" class="flex-container">
     <div>
       <span>{{node.label}}: </span>
       <node-boolean *ngIf="node.type === nodeType.BOOLEAN" [node]="node"></node-boolean>
