@@ -30,4 +30,9 @@ export class NodeNumber extends Node implements INumberSchema {
   isValid(): boolean {
     return this.range ? this.value >= this.range.from && this.value <= this.range.to : true;
   }
+
+  getValidationMessage(): string {
+    return this.isValid() ? '' : 'Values must be between ' + this.range.from + ' and ' +
+      this.range.to;
+  }
 }

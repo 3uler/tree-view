@@ -36,12 +36,31 @@ export class NodeString extends Node implements IStringSchema {
 
   isValid(): boolean {
     let isValid = true;
-    if (this.minimalLength && this.value.length < this.minimalLength) {
+    if (this.belowLowerBound()) {
       isValid = false;
     }
-    if (this.maximalLength && this.value.length > this.maximalLength) {
+    if (this.aboveUpperBound()) {
       isValid = false;
     }
     return isValid;
+  }
+
+  getValidationMessage(): string {
+    let message = '';
+    if (!this.isValid() && this.belowLowerBound()) {
+      message = 'The entry must contain at least ' + this.minimalLength + ' characters';
+    }
+    if (!this.isValid() && this.aboveUpperBound()) {
+      message = 'The entry must contain more than ' + this.maximalLength + ' characters';
+    }
+    return message;
+  }
+
+  private belowLowerBound(): boolean {
+    return this.minimalLength && this.value.length < this.minimalLength;
+  }
+
+  private aboveUpperBound(): boolean {
+    return this.maximalLength && this.value.length > this.maximalLength;
   }
 }

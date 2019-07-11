@@ -1,0 +1,13 @@
+<div class="node-container">
+  <div class="label"><span>{{node.label}}:</span></div>
+  <div class="field-container">
+    <input *ngIf="!nodePrim.values" [type]="getType()" [disabled]="nodePrim.readonly" [(ngModel)]="nodePrim.value">
+    <div *ngIf="!!nodePrim.values" class="select-wrapper">
+      <select [(ngModel)]="nodePrim.value" [disabled]="nodePrim.readonly">
+        <option *ngFor="let val of nodePrim.values" [value]="val">{{val}}</option>
+      </select>
+    </div>
+    <span *ngIf="showValidation && !nodePrim.isValid()"
+          class="validation-warning">{{nodePrim.getValidationMessage()}}</span>
+  </div>
+</div>
