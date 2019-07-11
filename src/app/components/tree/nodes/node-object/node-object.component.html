@@ -1,0 +1,11 @@
+<div class="hline"></div>
+<div class="header">
+  <div>
+    <span [ngClass]="{'collapse-btn-down': collapsed, 'collapse-btn-up': !collapsed}" (click)="toggleCollapsed()"></span>
+    <span class="label">{{node.label}}: </span>
+  </div>
+  <input type="checkbox" [(ngModel)]="node.selected">
+</div>
+<div *ngIf="!collapsed">
+  <node-list [children]="nodeObject.children"></node-list>
+</div>

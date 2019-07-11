@@ -1,0 +1,16 @@
+<div style="max-width: 500px; margin-top: 12px">
+  <div class="right">
+    <button class="secondary-btn" (click)="removeSelected()">Remove</button>
+  </div>
+  <div class="hline"></div>
+  <div class="node-view">
+    <node-list [children]="treeNodes"></node-list>
+  </div>
+  <div class="hline"></div>
+  <div class="space-between">
+    <span
+      [ngClass]="{'hidden': !validated, 'validation-message-valid': valid, 'validation-message-invalid': !valid}">
+      {{valid ? 'All entries are valid' : 'There are validation errors'}}</span>
+    <button class="primary-btn" (click)="validate()">Validate</button>
+  </div>
+</div>

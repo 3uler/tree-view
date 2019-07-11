@@ -1,0 +1,13 @@
+.child-container {
+  margin-left: 15px;
+  & > * {
+    margin-bottom: 10px;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}

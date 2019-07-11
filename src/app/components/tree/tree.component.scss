@@ -1,0 +1,21 @@
+.right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.node-view {
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+  padding-right: 10px;
+}

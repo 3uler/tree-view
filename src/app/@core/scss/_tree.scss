@@ -1,0 +1,53 @@
+@import "colors";
+
+span {
+  font-family: Roboto, sans-serif;
+}
+
+.validation-warning {
+  color: $dark-red;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.node-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hline {
+  height: 1px;
+  background: $light-gray;
+  margin: 16px 0;
+}
+
+.label {
+  font-size: 14px;
+  max-width: 30px;
+  width: 30px;
+  margin-right: 8px;
+}
+
+@mixin validation-message {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.validation-message-valid {
+  @include validation-message;
+  color: $light-green;
+}
+
+
+.validation-message-invalid {
+  @include validation-message;
+  color: $light-red;
+}

@@ -1,0 +1,10 @@
+<div *ngFor="let node of children" class="child-container">
+  <div *ngIf="!isObjectOrArray(node)" class="flex-container">
+    <div>
+      <node-boolean *ngIf="node.type === nodeType.BOOLEAN" [node]="node"></node-boolean>
+      <node-primitive *ngIf="node.type !== nodeType.BOOLEAN" [node]="node"></node-primitive>
+    </div>
+    <input type="checkbox" [(ngModel)]="node.selected">
+  </div>
+  <node-object *ngIf="isObjectOrArray(node)" [node]="node"></node-object>
+</div>

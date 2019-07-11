@@ -1,0 +1,47 @@
+@import "colors";
+
+@mixin base-field {
+  background: $white;
+  border-radius: 2px;
+  border: 1px solid $mid-gray;
+
+  &:focus {
+    outline-color: $light-gray;
+    outline-width: 3px;
+  }
+}
+
+input {
+  @include base-field;
+  padding: 2px 4px;
+}
+
+input:not([type='checkbox']) {
+  width: 100px;
+}
+
+
+.select-wrapper {
+  @include base-field;
+  width: 108px;
+  padding: 0;
+  &:after {
+    font-family: FontAwesome, sans-serif;
+    content: "\f107";
+  }
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 94px;
+  border: none;
+  padding: 0 4px;
+  background: $white;
+  &:focus {
+    outline: 0;
+  }
+}
+
+
